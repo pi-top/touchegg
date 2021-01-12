@@ -1,5 +1,5 @@
 [Unit]
-Description=Touchégg
+Description=Touchégg Daemon
 Documentation=https://github.com/JoseExposito/touchegg
 
 [Service]

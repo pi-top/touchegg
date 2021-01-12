@@ -62,7 +62,6 @@ it from the terminal:
 $ cd ~/Downloads # Or to the path where the deb package is placed at
 $ sudo apt install ./touchegg_*.deb # Install the package
 ```
-Run Touchégg manually by running the command `touchegg` or reboot to get started.
 
 ## Red Hat, Fedora, CentOS and derivatives
 
@@ -74,13 +73,23 @@ $ cd ~/Downloads # Or to the path where the rpm package is placed at
 $ sudo yum localinstall touchegg-*.rpm # Install the package
 ```
 
-Run Touchégg manually by running the command `touchegg` or reboot to get started.
-
 ## Arch Linux, Manjaro and derivatives
 
 Install the `touchegg` package from [AUR](https://aur.archlinux.org/packages/touchegg/).
 
-Run Touchégg manually by running the command `touchegg` or reboot to get started.
+# Running Touchégg
+
+To enable Touchégg to start on boot, run:
+```bash
+$ systemctl --user enable touchegg
+```
+
+To start Touchégg for the current session only, run:
+```bash
+$ systemctl --user start touchegg
+```
+
+Alternatively, you can run the command `touchegg` directly.
 
 # Configuration
 
@@ -556,7 +565,7 @@ new multi-touch device is connected.
 Example:
 
 ```bash
-$ cat /lib/systemd/system/touchegg.service | grep ExecStart
+grep "ExecStart" /lib/systemd/system/touchegg.service
 ExecStart=/usr/bin/touchegg --daemon 100 500
 
 $ sudo systemctl daemon-reload && sudo systemctl restart touchegg
